@@ -480,11 +480,17 @@ const iconOnlyStyle = {
   cursor: "pointer",
   transition: "all 0.15s ease",
 };
-const iconImageStyle = {
-  width: 26,
-  height: 26,
-  display: "block",
-  transition: "transform 0.15s ease",
+const iconOnlyStyle = {
+  width: 44,
+  height: 44,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "transparent",          // 🔥 no dark box
+  border: "2px solid transparent",     // invisible by default
+  boxShadow: "none",
+  cursor: "pointer",
+  transition: "all 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
 };
 
 /* ═══════════════════════════════════════════════════════════
@@ -595,63 +601,70 @@ function Footer({ nav }) {
             }}
           >
             {/* EMAIL */}
-           <a
+          <a
   href="mailto:byahmadfaroqq@outlook.com"
   aria-label="Email"
   style={iconOnlyStyle}
- onMouseEnter={(e) => {
-  e.currentTarget.style.transform = "translate(-2px, -2px)";
-  e.currentTarget.style.boxShadow = "6px 6px 0 #EA4335"; // Gmail red
-  e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
-}}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.border = "2px solid #EA4335";
+    e.currentTarget.style.boxShadow = "4px 4px 0 #EA4335";
+    e.currentTarget.style.transform = "translate(-2px, -2px)";
+    e.currentTarget.querySelector("svg").querySelectorAll("*")
+      .forEach(el => el.setAttribute("stroke", "#EA4335"));
+  }}
   onMouseLeave={(e) => {
+    e.currentTarget.style.border = "2px solid transparent";
+    e.currentTarget.style.boxShadow = "none";
     e.currentTarget.style.transform = "none";
-    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+    e.currentTarget.querySelector("svg").querySelectorAll("*")
+      .forEach(el => el.setAttribute("stroke", "#aaa"));
   }}
 >
-  <img src="/icons/email.svg" alt="Email" style={iconImageStyle} />
+  <MailIcon />
 </a>
-            <a
+          <a
   href="https://wa.me/923472768985"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="WhatsApp"
   style={iconOnlyStyle}
   onMouseEnter={(e) => {
+    e.currentTarget.style.border = "2px solid #25D366";
+    e.currentTarget.style.boxShadow = "4px 4px 0 #25D366";
     e.currentTarget.style.transform = "translate(-2px, -2px)";
-    e.currentTarget.style.boxShadow = `6px 6px 0 #25D366`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+    e.currentTarget.querySelector("svg").style.fill = "#25D366";
   }}
   onMouseLeave={(e) => {
+    e.currentTarget.style.border = "2px solid transparent";
+    e.currentTarget.style.boxShadow = "none";
     e.currentTarget.style.transform = "none";
-    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+    e.currentTarget.querySelector("svg").style.fill = "#aaa";
   }}
 >
-  <img src="/icons/whatsapp.svg" alt="WhatsApp" style={iconImageStyle} />
+  <WhatsAppIcon />
 </a>
 
-
             {/* LINKEDIN */}
-           <a
+          <a
   href="https://linkedin.com/in/byahmad"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="LinkedIn"
   style={iconOnlyStyle}
   onMouseEnter={(e) => {
+    e.currentTarget.style.border = "2px solid #0A66C2";
+    e.currentTarget.style.boxShadow = "4px 4px 0 #0A66C2";
     e.currentTarget.style.transform = "translate(-2px, -2px)";
-    e.currentTarget.style.boxShadow = `6px 6px 0 #0A66C2`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+    e.currentTarget.querySelector("svg").style.fill = "#0A66C2";
   }}
   onMouseLeave={(e) => {
+    e.currentTarget.style.border = "2px solid transparent";
+    e.currentTarget.style.boxShadow = "none";
     e.currentTarget.style.transform = "none";
-    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+    e.currentTarget.querySelector("svg").style.fill = "#aaa";
   }}
 >
-  <img src="/icons/linkedin.svg" alt="LinkedIn" style={iconImageStyle} />
+  <LinkedInIcon />
 </a>
           </div>
         </div>
