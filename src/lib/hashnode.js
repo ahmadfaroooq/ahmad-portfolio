@@ -5,7 +5,7 @@ export async function fetchPosts() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: import.meta.env.VITE_HASHNODE_API_KEY,
+      Authorization: `Bearer ${import.meta.env.VITE_HASHNODE_API_KEY} ,
     },
     body: JSON.stringify({
       query: `
