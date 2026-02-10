@@ -1240,63 +1240,176 @@ function PostPage({ post, nav }) {
 function BookPage() {
   return (
     <div>
+      {/* HERO */}
       <section style={{ background: P.orange, borderBottom: `4px solid ${P.dark}` }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "72px 24px 56px" }}>
           <Anim>
             <BTag color={P.white}>Let Us Talk</BTag>
-            <h1 style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: "clamp(36px, 5vw, 56px)", marginTop: 16, color: P.white, textTransform: "uppercase" }}>Book a Strategy Session</h1>
-            <p style={{ fontFamily: "'Sora'", fontSize: 15, color: "rgba(255,255,255,0.85)", maxWidth: 500, marginTop: 12 }}>30 minutes. No pitch. Just strategy for your growth challenges.</p>
+            <h1
+              style={{
+                fontFamily: "'Outfit'",
+                fontWeight: 900,
+                fontSize: "clamp(36px, 5vw, 56px)",
+                marginTop: 16,
+                color: P.white,
+                textTransform: "uppercase",
+              }}
+            >
+              Book a Strategy Session
+            </h1>
+            <p
+              style={{
+                fontFamily: "'Sora'",
+                fontSize: 15,
+                color: "rgba(255,255,255,0.85)",
+                maxWidth: 500,
+                marginTop: 12,
+              }}
+            >
+              30 minutes. No pitch. Just strategy for your growth challenges.
+            </p>
           </Anim>
         </div>
       </section>
-      <section style={{ padding: "72px 24px", background: P.bg, borderBottom: `4px solid ${P.dark}` }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32 }}>
+
+      {/* CONTENT */}
+      <section
+        style={{
+          padding: "72px 24px",
+          background: P.bg,
+          borderBottom: `4px solid ${P.dark}`,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1140,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 32,
+          }}
+        >
+          {/* LEFT — GOOGLE CALENDAR */}
           <Anim>
-            <div style={{ border: `3px solid ${P.dark}`, boxShadow: `5px 5px 0 ${P.dark}`, background: P.white, overflow: "hidden" }}>
-              <div style={{ background: P.dark, color: P.white, padding: "14px 20px", display: "flex", justifyContent: "space-between" }}>
-                <span style={{ fontFamily: "'Outfit'", fontWeight: 800 }}>February 2026</span>
-                <span style={{ fontFamily: "'Outfit'", fontWeight: 700 }}>← →</span>
+            <div
+              style={{
+                border: `3px solid ${P.dark}`,
+                boxShadow: `5px 5px 0 ${P.dark}`,
+                background: P.white,
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  background: P.dark,
+                  color: P.white,
+                  padding: "14px 20px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ fontFamily: "'Outfit'", fontWeight: 800 }}>
+                  Book a Slot
+                </span>
+                <span style={{ fontFamily: "'Outfit'", fontWeight: 700 }}>
+                  30 min
+                </span>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 2, padding: 2, background: P.lightgray }}>
-                {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d, i) => (
-                  <div key={i} style={{ background: P.white, padding: "10px 4px", textAlign: "center" }}>
-                    <div style={{ fontFamily: "'Outfit'", fontSize: 10, fontWeight: 700, letterSpacing: 1, color: P.gray, marginBottom: 6 }}>{d}</div>
-                    <div style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: 20 }}>{[10, 11, 12, 13, 14][i]}</div>
-                    <div style={{ width: 8, height: 8, background: P.blue, margin: "4px auto 0" }} />
-                  </div>
-                ))}
-              </div>
-              <div style={{ padding: 14 }}>
-                <div style={{ fontFamily: "'Outfit'", fontSize: 11, fontWeight: 800, letterSpacing: 2, marginBottom: 10, color: P.gray, textTransform: "uppercase" }}>Available Slots</div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6 }}>
-                  {["9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM"].map((t, i) => (
-                    <div
-                      key={i}
-                      style={{ padding: "10px 6px", textAlign: "center", border: `2px solid ${P.dark}`, fontFamily: "'Outfit'", fontSize: 12, fontWeight: 700, cursor: "pointer", transition: "all 0.15s", background: P.white }}
-                      onMouseEnter={(e) => { e.target.style.background = P.lime; e.target.style.transform = "translate(-2px, -2px)"; e.target.style.boxShadow = `3px 3px 0 ${P.dark}`; }}
-                      onMouseLeave={(e) => { e.target.style.background = P.white; e.target.style.transform = "none"; e.target.style.boxShadow = "none"; }}
-                    >
-                      {t}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ padding: "8px 14px 14px", fontFamily: "'Sora'", fontSize: 11, color: P.gray, fontStyle: "italic" }}>Calendly integration replaces this mockup.</div>
+
+              <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2pzC7RgnUdrI3BDzcna61LNrbLfxKZXq-2Jrp_F3igef-birVXHQRrdzMBZpcgu-8ZKjs-CIrv?gv=true"
+                style={{
+                  width: "100%",
+                  height: 620,
+                  border: "none",
+                  background: P.white,
+                }}
+                loading="lazy"
+              />
             </div>
           </Anim>
+
+          {/* RIGHT — PREP INFO */}
           <Anim delay={0.15}>
             <div>
-              <h2 style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: 22, marginBottom: 20, textTransform: "uppercase" }}>What to Prepare</h2>
-              {["Your current marketing challenges", "Business goals for the next 3 to 6 months", "Existing analytics or marketing materials", "Questions about your growth strategy"].map((item, i) => (
+              <h2
+                style={{
+                  fontFamily: "'Outfit'",
+                  fontWeight: 900,
+                  fontSize: 22,
+                  marginBottom: 20,
+                  textTransform: "uppercase",
+                }}
+              >
+                What to Prepare
+              </h2>
+
+              {[
+                "Your current marketing challenges",
+                "Business goals for the next 3 to 6 months",
+                "Existing analytics or marketing materials",
+                "Questions about your growth strategy",
+              ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: 14, marginBottom: 14 }}>
-                  <div style={{ width: 32, height: 32, background: P.orange, border: `2px solid ${P.dark}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Outfit'", fontWeight: 900, fontSize: 15, color: P.white, flexShrink: 0 }}>{i + 1}</div>
-                  <p style={{ fontFamily: "'Sora'", fontSize: 13, color: P.gray, lineHeight: 1.6, paddingTop: 5 }}>{item}</p>
+                  <div
+                    style={{
+                      width: 32,
+                      height: 32,
+                      background: P.orange,
+                      border: `2px solid ${P.dark}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "'Outfit'",
+                      fontWeight: 900,
+                      fontSize: 15,
+                      color: P.white,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "'Sora'",
+                      fontSize: 13,
+                      color: P.gray,
+                      lineHeight: 1.6,
+                      paddingTop: 5,
+                    }}
+                  >
+                    {item}
+                  </p>
                 </div>
               ))}
-              <div style={{ marginTop: 28, padding: 22, background: P.white, border: `3px solid ${P.dark}`, boxShadow: `4px 4px 0 ${P.dark}` }}>
-                <h3 style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 14, marginBottom: 10, textTransform: "uppercase" }}>Reach Out Directly</h3>
-                <p style={{ fontFamily: "'Sora'", fontSize: 13, color: P.gray, marginBottom: 4 }}>byahmadfaroqq@outlook.com</p>
-                <p style={{ fontFamily: "'Sora'", fontSize: 13, color: P.gray }}>+92 347 2768985</p>
+
+              <div
+                style={{
+                  marginTop: 28,
+                  padding: 22,
+                  background: P.white,
+                  border: `3px solid ${P.dark}`,
+                  boxShadow: `4px 4px 0 ${P.dark}`,
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "'Outfit'",
+                    fontWeight: 800,
+                    fontSize: 14,
+                    marginBottom: 10,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Reach Out Directly
+                </h3>
+                <p style={{ fontFamily: "'Sora'", fontSize: 13, color: P.gray }}>
+                  byahmadfaroqq@outlook.com
+                </p>
+                <p style={{ fontFamily: "'Sora'", fontSize: 13, color: P.gray }}>
+                  +92 347 2768985
+                </p>
               </div>
             </div>
           </Anim>
@@ -1305,7 +1418,6 @@ function BookPage() {
     </div>
   );
 }
-
 /* ═══════════════════════════════════════════════════════════
    PLAYBOOK PAGE
    ═══════════════════════════════════════════════════════════ */
