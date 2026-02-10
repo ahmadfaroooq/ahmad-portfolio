@@ -737,7 +737,16 @@ export default function App() {
   };
   return (
     <>
-      <style>{`.desktop-nav{display:flex!important}.mobile-menu-btn{display:none!important}@media(max-width:768px){.desktop-nav{display:none!important}.mobile-menu-btn{display:block!important}}`}</style>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+        .desktop-nav{display:flex!important}
+        .mobile-menu-btn{display:none!important}
+        @media(max-width:768px){.desktop-nav{display:none!important}.mobile-menu-btn{display:block!important}}
+        input::placeholder{color:#999}
+        @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        ::selection{background:#A6FF00;color:#1A1A1A}
+      `}</style>
       <div ref={ref} style={{ fontFamily: "'Sora', sans-serif", color: P.dark, background: P.bg, margin: 0, lineHeight: 1.7, fontSize: 15, height: "100vh", overflow: "auto" }}>
         <Header page={page} setPage={nav} />
         <main style={{ minHeight: "60vh" }}>{render()}</main>
