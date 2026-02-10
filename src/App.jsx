@@ -280,20 +280,50 @@ function ProcessStep({ num, title, desc, color }) {
 /* ─── EMAIL SUBSCRIBE FORM ─── */
 function SubscribeForm({ label = "Subscribe", source = "blog" }) {
   const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-  const handleSubmit = () => {
-    if (!email) return;
-    fetch("https://formspree.io/f/xpznqkao", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, source }),
-    })
-      .then(() => setSent(true))
-      .catch(() => setSent(true));
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  const handleSubmit = async () => {
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!isValid) {
+      setStatus("error");
+      return;
+    }
+
+    try {
+      setStatus("sending");
+
+      const res = await fetch("https://formspree.io/f/xreaegan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          source,
+          page: window.location.pathname,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (!res.ok) throw new Error("Formspree failed");
+
+      setStatus("success");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
-  if (sent) {
-    return <p style={{ fontFamily: "'Outfit'", fontWeight: 800, color: "#2e7d32" }}>You are in. Thank you!</p>;
+
+  if (status === "success") {
+    return (
+      <p style={{ fontFamily: "'Outfit'", fontWeight: 800, color: "#2e7d32" }}>
+        You’re in. Check your inbox 👀
+      </p>
+    );
   }
+
   return (
     <div style={{ display: "flex", gap: 0 }}>
       <input
@@ -305,34 +335,40 @@ function SubscribeForm({ label = "Subscribe", source = "blog" }) {
         style={{
           flex: 1,
           padding: "14px 16px",
-          border: `3px solid ${P.dark}`,
+          border: "3px solid #1A1A1A",
           borderRight: "none",
-          background: P.bg,
+          background: "#FFF5E1",
           fontSize: 14,
           fontFamily: "'Sora'",
           outline: "none",
         }}
+        disabled={status === "sending"}
       />
       <button
         onClick={handleSubmit}
+        disabled={status === "sending"}
         style={{
           padding: "14px 20px",
-          background: P.orange,
-          color: P.white,
-          border: `3px solid ${P.dark}`,
+          background: "#FF4D00",
+          color: "#FFFFFF",
+          border: "3px solid #1A1A1A",
           fontFamily: "'Outfit'",
           fontSize: 13,
           fontWeight: 800,
           letterSpacing: 1,
           textTransform: "uppercase",
           cursor: "pointer",
-          transition: "all 0.15s",
+          opacity: status === "sending" ? 0.6 : 1,
         }}
-        onMouseEnter={(e) => (e.target.style.background = P.dark)}
-        onMouseLeave={(e) => (e.target.style.background = P.orange)}
       >
-        {label}
+        {status === "sending" ? "Sending..." : label}
       </button>
+
+      {status === "error" && (
+        <p style={{ marginTop: 8, fontSize: 12, color: "#c62828" }}>
+          Please enter a valid email.
+        </p>
+      )}
     </div>
   );
 }
