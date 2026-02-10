@@ -480,31 +480,12 @@ const iconOnlyStyle = {
   cursor: "pointer",
   transition: "all 0.15s ease",
 };
-
-function MailIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <rect x="2" y="4" width="20" height="16" stroke="#ccc" strokeWidth="2" />
-      <path d="M2 6l10 7 10-7" stroke="#ccc" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 32 32" fill="#25D366">
-      <path d="M16 2C8.3 2 2 8.1 2 15.6c0 2.8.8 5.4 2.4 7.6L2 30l7-2.3c2 1.1 4.3 1.7 7 1.7 7.7 0 14-6.1 14-13.8C30 8.1 23.7 2 16 2z"/>
-    </svg>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
-      <path d="M4 3a2 2 0 100 4 2 2 0 000-4zM3 8h2v13H3zM9 8h2v2h.1c.3-.6 1.2-1.3 2.5-1.3 2.7 0 3.4 1.8 3.4 4.2V21h-2v-7.2c0-1.7-.1-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V21H9z"/>
-    </svg>
-  );
-}
+const iconImageStyle = {
+  width: 26,
+  height: 26,
+  display: "block",
+  transition: "transform 0.15s ease",
+};
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
@@ -614,74 +595,64 @@ function Footer({ nav }) {
             }}
           >
             {/* EMAIL */}
+           <a
+  href="mailto:byahmadfaroqq@outlook.com"
+  aria-label="Email"
+  style={iconOnlyStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translate(-2px, -2px)";
+    e.currentTarget.style.boxShadow = `6px 6px 0 ${P.dark}`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "none";
+    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+  }}
+>
+  <img src="/icons/email.svg" alt="Email" style={iconImageStyle} />
+</a>
             <a
-              href="mailto:byahmadfaroqq@outlook.com"
-              aria-label="Email"
-              style={iconOnlyStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translate(-2px, -2px)";
-                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "none";
-                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1)";
-              }}
-            >
-              <MailIcon />
-            </a>
+  href="https://wa.me/923472768985"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp"
+  style={iconOnlyStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translate(-2px, -2px)";
+    e.currentTarget.style.boxShadow = `6px 6px 0 #25D366`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "none";
+    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+  }}
+>
+  <img src="/icons/whatsapp.svg" alt="WhatsApp" style={iconImageStyle} />
+</a>
 
-            {/* WHATSAPP */}
-            <a
-              href="https://wa.me/923472768985"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              style={iconOnlyStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translate(-2px, -2px)";
-                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "none";
-                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1)";
-              }}
-            >
-              <WhatsAppIcon />
-            </a>
 
             {/* LINKEDIN */}
-            <a
-              href="https://linkedin.com/in/byahmad"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={iconOnlyStyle}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translate(-2px, -2px)";
-                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "none";
-                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
-                e.currentTarget.querySelector("svg").style.transform =
-                  "scale(1)";
-              }}
-            >
-              <LinkedInIcon />
-            </a>
+           <a
+  href="https://linkedin.com/in/byahmad"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+  style={iconOnlyStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translate(-2px, -2px)";
+    e.currentTarget.style.boxShadow = `6px 6px 0 #0A66C2`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "none";
+    e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+    e.currentTarget.querySelector("img").style.transform = "scale(1)";
+  }}
+>
+  <img src="/icons/linkedin.svg" alt="LinkedIn" style={iconImageStyle} />
+</a>
           </div>
         </div>
       </div>
