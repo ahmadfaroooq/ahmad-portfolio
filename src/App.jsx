@@ -468,15 +468,15 @@ function Header({ page, nav }) {
   );
 }
 /* ─── CONTACT ICONS ─── */
-const contactLinkStyle = {
+const iconOnlyStyle = {
+  width: 44,
+  height: 44,
   display: "flex",
   alignItems: "center",
-  gap: 10,
-  fontFamily: "'Sora'",
-  fontSize: 13,
-  color: "#ccc",
-  textDecoration: "none",
-  marginBottom: 10,
+  justifyContent: "center",
+  background: "#111",
+  border: `2px solid ${P.dark}`,
+  boxShadow: `3px 3px 0 ${P.dark}`,
   cursor: "pointer",
   transition: "all 0.15s ease",
 };
@@ -691,7 +691,39 @@ function Footer({ nav }) {
         style={{
           borderTop: "2px solid #333",
           paddingTop: 20,
-          display: "flex"
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 12,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Sora'",
+            fontSize: 11,
+            color: "#666",
+          }}
+        >
+          © 2026 Ahmad Farooq. Built different.
+        </p>
+
+        <div
+          style={{
+            fontFamily: "'Outfit'",
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: 2,
+            color: P.orange,
+            textTransform: "uppercase",
+          }}
+        >
+          Neo-Brutalism Edition
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 /* ═══════════════════════════════════════════════════════════
    HOME PAGE
