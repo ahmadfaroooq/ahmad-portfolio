@@ -467,6 +467,44 @@ function Header({ page, nav }) {
     </header>
   );
 }
+/* ─── CONTACT ICONS ─── */
+const contactLinkStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: 10,
+  fontFamily: "'Sora'",
+  fontSize: 13,
+  color: "#ccc",
+  textDecoration: "none",
+  marginBottom: 10,
+  cursor: "pointer",
+  transition: "all 0.15s ease",
+};
+
+function MailIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="4" width="20" height="16" stroke="#ccc" strokeWidth="2" />
+      <path d="M2 6l10 7 10-7" stroke="#ccc" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="#25D366">
+      <path d="M16 2C8.3 2 2 8.1 2 15.6c0 2.8.8 5.4 2.4 7.6L2 30l7-2.3c2 1.1 4.3 1.7 7 1.7 7.7 0 14-6.1 14-13.8C30 8.1 23.7 2 16 2z"/>
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
+      <path d="M4 3a2 2 0 100 4 2 2 0 000-4zM3 8h2v13H3zM9 8h2v2h.1c.3-.6 1.2-1.3 2.5-1.3 2.7 0 3.4 1.8 3.4 4.2V21h-2v-7.2c0-1.7-.1-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V21H9z"/>
+    </svg>
+  );
+}
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
@@ -495,11 +533,56 @@ function Footer({ nav }) {
           ))}
         </div>
         <div>
-          <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", marginBottom: 14, color: P.orange }}>Contact</div>
-          <p style={{ fontFamily: "'Sora'", fontSize: 13, color: "#ccc", marginBottom: 6 }}>byahmadfaroqq@outlook.com</p>
-          <p style={{ fontFamily: "'Sora'", fontSize: 13, color: "#ccc", marginBottom: 6 }}>+92 347 2768985</p>
-          <p style={{ fontFamily: "'Sora'", fontSize: 13, color: "#ccc" }}>linkedin.com/in/byahmad</p>
-        </div>
+  <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", marginBottom: 14, color: P.orange }}>
+    Contact
+  </div>
+
+  <a
+  href="mailto:byahmadfaroqq@outlook.com"
+  style={contactLinkStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.color = P.l
+    <MailIcon />
+    byahmadfaroqq@outlook.com
+  </a>
+
+ <a
+  href="https://wa.me/923472768985"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={contactLinkStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.color = P.lime;
+    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.color = "#ccc";
+    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
+  }}
+>
+  <WhatsAppIcon />
+  +92 347 2768985
+</a>
+<a
+  href="https://linkedin.com/in/byahmad"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={contactLinkStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.color = P.lime;
+    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.color = "#ccc";
+    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
+  }}
+>
+  <LinkedInIcon />
+  linkedin.com/in/byahmad
+</a>
+
+</div>
+
       </div>
       <div style={{ borderTop: "2px solid #333", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
         <p style={{ fontFamily: "'Sora'", fontSize: 11, color: "#666" }}>&copy; 2026 Ahmad Farooq. Built different.</p>
