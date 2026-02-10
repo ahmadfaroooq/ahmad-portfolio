@@ -541,10 +541,17 @@ function Footer({ nav }) {
   href="mailto:byahmadfaroqq@outlook.com"
   style={contactLinkStyle}
   onMouseEnter={(e) => {
-    e.currentTarget.style.color = P.l
-    <MailIcon />
-    byahmadfaroqq@outlook.com
-  </a>
+    e.currentTarget.style.color = P.lime;
+    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.color = "#ccc";
+    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
+  }}
+>
+  <MailIcon />
+  byahmadfaroqq@outlook.com
+</a>
 
  <a
   href="https://wa.me/923472768985"
