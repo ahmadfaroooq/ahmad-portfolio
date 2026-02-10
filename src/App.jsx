@@ -1,3 +1,5 @@
+import ghost from "./lib/ghost";
+
 import { useState, useRef, useEffect } from "react";
 
 /* ═══════════════════════════════════════════════════════════
@@ -594,35 +596,233 @@ function DesignPage({ setPage }) {
 }
 
 /* ═══ BLOG PAGE ═══ */
-function BlogPage() {
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-  const submit = () => { if (!email) return; fetch("https://formspree.io/f/xpznqkao", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) }).then(() => setSent(true)).catch(() => setSent(true)); };
+function BlogPage({ openPost }) {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    ghost.posts
+      .browse({ limit: 10 })
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div>
+      {/* Header */}
       <section style={{ background: P.blue, borderBottom: `4px solid ${P.dark}` }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", padding: "72px 24px 56px" }}><Anim><BTag color={P.lime}>Blog</BTag><h1 style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: "clamp(36px, 5vw, 56px)", marginTop: 16, color: P.white, textTransform: "uppercase" }}>Insights</h1></Anim></div>
+        <div style={{ maxWidth: 1140, margin: "0 auto", padding: "72px 24px 56px" }}>
+          <Anim>
+            <BTag color={P.lime}>Blog</BTag>
+            <h1
+              style={{
+                fontFamily: "'Outfit'",
+                fontWeight: 900,
+                fontSize: "clamp(36px, 5vw, 56px)",
+                marginTop: 16,
+                color: P.white,
+                textTransform: "uppercase",
+              }}
+            >
+              Insights
+            </h1>
+          </Anim>
+        </div>
       </section>
-      <section style={{ padding: "72px 24px", background: P.bg, textAlign: "center", minHeight: 350, borderBottom: `4px solid ${P.dark}` }}>
-        <Anim>
-          <div style={{ background: P.lime, width: 80, height: 80, border: `3px solid ${P.dark}`, boxShadow: `4px 4px 0 ${P.dark}`, margin: "0 auto 20px", display: "flex", alignItems: "center", justifyContent: "center", transform: "rotate(-5deg)" }}>
-            <span style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: 28 }}>?!</span>
+
+      {/* Posts */}
+      <section style={{ padding: "72px 24px", background: P.bg, borderBottom: `4px solid ${P.dark}` }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          {loading && <p>Loading posts…</p>}
+
+          {!loading && posts.length === 0 && (
+            <p style={{ fontFamily: "'Sora'", color: P.gray }}>
+              No posts yet. Publish your first post in Ghost.
+            </p>
+          )}
+
+          <div style={{ display: "grid", gap: 32 }}>
+            {posts.map((post, i) => (
+              <Anim key={post.id} delay={i * 0.05}>
+                <article
+                onClick={() => openPost(post)}
+                  style={{
+                    background: P.white,
+                    border: `3px solid ${P.dark}`,
+                    boxShadow: `5px 5px 0 ${P.dark}`,
+                    padding: 28,
+                    cursor: "pointer"
+                  }}
+                >
+                  <h2
+                    style={{
+                      fontFamily: "'Outfit'",
+                      fontWeight: 900,
+                      fontSize: 22,
+                      marginBottom: 10,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {post.title}
+                  </h2>
+
+                  <p
+                    style={{
+                      fontFamily: "'Sora'",
+                      fontSize: 14,
+                      color: P.gray,
+                      lineHeight: 1.7,
+                      marginBottom: 14,
+                    }}
+                  >
+                    {post.excerpt}
+                  </p>
+
+                  <div
+                    style={{ fontFamily: "'Outfit'", fontSize: 11, fontWeight: 700, letterSpacing: 2 }}
+                  >
+                    {new Date(post.published_at).toDateString()}
+                  </div>
+                </article>
+              </Anim>
+            ))}
           </div>
-          <h2 style={{ fontFamily: "'Outfit'", fontWeight: 900, fontSize: 26, marginBottom: 10, textTransform: "uppercase" }}>Coming Soon</h2>
-          <p style={{ fontFamily: "'Sora'", fontSize: 14, color: P.gray, marginBottom: 36 }}>Articles on growth, funnels, LinkedIn, and content systems. Dropping soon.</p>
-          <div style={{ maxWidth: 480, margin: "0 auto", padding: 28, background: P.white, border: `3px solid ${P.dark}`, boxShadow: `5px 5px 0 ${P.dark}` }}>
-            <h3 style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 18, marginBottom: 8, textTransform: "uppercase" }}>Get Notified</h3>
-            <p style={{ fontFamily: "'Sora'", fontSize: 12, color: P.gray, marginBottom: 14 }}>First to read. No spam. Ever.</p>
-            {sent ? <p style={{ fontFamily: "'Outfit'", fontWeight: 800, color: "#2e7d32" }}>You are in. Thank you!</p> : (
-              <div style={{ display: "flex", gap: 0 }}>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
-                  style={{ flex: 1, padding: "14px 16px", border: `3px solid ${P.dark}`, borderRight: "none", background: P.bg, fontSize: 14, fontFamily: "'Sora'", outline: "none" }} />
-                <button onClick={submit} style={{ padding: "14px 20px", background: P.orange, color: P.white, border: `3px solid ${P.dark}`, fontFamily: "'Outfit'", fontSize: 13, fontWeight: 800, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer", transition: "all 0.15s" }}
-                  onMouseEnter={e => e.target.style.background = P.dark} onMouseLeave={e => e.target.style.background = P.orange}>Subscribe</button>
-              </div>
-            )}
-          </div>
-        </Anim>
+        </div>
+      </section>
+    </div>
+  );
+}
+/* ═══ FULL BLOG POST ═══ */
+function PostPage({ post, goBack }) {
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const submit = () => {
+    if (!email) return;
+    fetch("https://formspree.io/f/xpznqkao", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, source: "blog" }),
+    })
+      .then(() => setSent(true))
+      .catch(() => setSent(true));
+  };
+
+  return (
+    <div>
+      {/* Header */}
+      <section style={{ background: P.blue, borderBottom: `4px solid ${P.dark}` }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "72px 24px 56px" }}>
+          <Anim>
+            <button
+              onClick={goBack}
+              style={{
+                background: P.lime,
+                border: `3px solid ${P.dark}`,
+                padding: "6px 14px",
+                fontFamily: "'Outfit'",
+                fontWeight: 800,
+                cursor: "pointer",
+                marginBottom: 20,
+              }}
+            >
+              ← Back to Blog
+            </button>
+
+            <h1
+              style={{
+                fontFamily: "'Outfit'",
+                fontWeight: 900,
+                fontSize: "clamp(32px, 5vw, 48px)",
+                color: P.white,
+                marginBottom: 14,
+                textTransform: "uppercase",
+              }}
+            >
+              {post.title}
+            </h1>
+
+            <div style={{ fontFamily: "'Outfit'", fontSize: 11, letterSpacing: 2, color: P.lime }}>
+              {new Date(post.published_at).toDateString()}
+            </div>
+          </Anim>
+        </div>
+      </section>
+
+      {/* Article */}
+      <section style={{ padding: "72px 24px", background: P.bg }}>
+        <div
+          style={{
+            maxWidth: 760,
+            margin: "0 auto",
+            background: P.white,
+            border: `3px solid ${P.dark}`,
+            boxShadow: `6px 6px 0 ${P.dark}`,
+            padding: 36,
+            fontFamily: "'Sora'",
+            lineHeight: 1.9,
+          }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </section>
+
+      {/* Subscribe */}
+      <section style={{ padding: "56px 24px", background: P.cream, borderTop: `4px solid ${P.dark}` }}>
+        <div
+          style={{
+            maxWidth: 480,
+            margin: "0 auto",
+            padding: 28,
+            background: P.white,
+            border: `3px solid ${P.dark}`,
+            boxShadow: `5px 5px 0 ${P.dark}`,
+          }}
+        >
+          <h3 style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 18, marginBottom: 8 }}>
+            Subscribe for more
+          </h3>
+
+          {sent ? (
+            <p style={{ fontFamily: "'Outfit'", fontWeight: 800, color: "#2e7d32" }}>
+              You’re in. No spam.
+            </p>
+          ) : (
+            <div style={{ display: "flex" }}>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                style={{
+                  flex: 1,
+                  padding: "14px 16px",
+                  border: `3px solid ${P.dark}`,
+                  borderRight: "none",
+                  fontFamily: "'Sora'",
+                }}
+              />
+              <button
+                onClick={submit}
+                style={{
+                  padding: "14px 20px",
+                  background: P.orange,
+                  color: P.white,
+                  border: `3px solid ${P.dark}`,
+                  fontFamily: "'Outfit'",
+                  fontWeight: 800,
+                  cursor: "pointer",
+                }}
+              >
+                Subscribe
+              </button>
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );
@@ -728,6 +928,7 @@ function PlaybookPage() {
 /* ═══ MAIN APP ═══ */
 export default function App() {
   const [page, setPage] = useState("home");
+const [activePost, setActivePost] = useState(null);
   const ref = useRef(null);
   const nav = (p) => { setPage(p); ref.current?.scrollTo({ top: 0, behavior: "instant" }); };
   const render = () => {
@@ -740,7 +941,22 @@ export default function App() {
       case "gdesign": return <ServicePage cfg={SVC.gdesign} setPage={nav} />;
       case "branding": return <ServicePage cfg={SVC.branding} setPage={nav} />;
       case "design": return <DesignPage setPage={nav} />;
-      case "blog": return <BlogPage />;
+      case "blog":
+  return (
+    <BlogPage
+      openPost={(post) => {
+        setActivePost(post);
+        setPage("post");
+      }}
+    />
+  );
+  case "post":
+  return (
+    <PostPage
+      post={activePost}
+      goBack={() => setPage("blog")}
+    />
+  );
       case "book": return <BookPage />;
       case "playbook": return <PlaybookPage />;
       default: return <HomePage setPage={nav} />;
