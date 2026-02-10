@@ -5,7 +5,7 @@ export async function fetchPosts() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.VITE_HASHNODE_API_KEY} ,
+      Authorization: `Bearer ${import.meta.env.VITE_HASHNODE_API_KEY}`,
     },
     body: JSON.stringify({
       query: `
@@ -31,5 +31,6 @@ export async function fetchPosts() {
     }),
   });
 
-  return res.json();
+  const json = await res.json();
+  return json.data.publication.posts.edges.map(e => e.node);
 }
