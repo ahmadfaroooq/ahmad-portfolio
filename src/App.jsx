@@ -548,6 +548,7 @@ function Footer({ nav }) {
         padding: "48px 24px 28px",
       }}
     >
+      {/* TOP GRID */}
       <div
         style={{
           maxWidth: 1140,
@@ -561,92 +562,173 @@ function Footer({ nav }) {
         {/* BRAND */}
         <div>
           <Logo size={28} />
-          <p style={{ fontFamily: "'Sora'", fontSize: 13, color: "#999", lineHeight: 1.8, marginTop: 14 }}>
+          <p
+            style={{
+              fontFamily: "'Sora'",
+              fontSize: 13,
+              color: "#999",
+              lineHeight: 1.8,
+              marginTop: 14,
+            }}
+          >
             Growth strategist who builds systems, not excuses.
           </p>
         </div>
 
         {/* QUICK LINKS */}
         <div>
-          <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, color: P.orange, marginBottom: 14 }}>
+          <div
+            style={{
+              fontFamily: "'Outfit'",
+              fontWeight: 800,
+              fontSize: 12,
+              letterSpacing: 3,
+              color: P.orange,
+              marginBottom: 14,
+            }}
+          >
             QUICK LINKS
           </div>
-          {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(({ l, k }) => (
-            <button
-              key={k}
-              onClick={() => nav(k)}
-              style={{ background: "none", border: "none", color: P.white, fontFamily: "'Sora'", fontSize: 13, padding: "4px 0", cursor: "pointer" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = P.lime)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = P.white)}
-            >
-              {l}
-            </button>
-          ))}
+
+          {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(
+            ({ l, k }) => (
+              <button
+                key={k}
+                onClick={() => nav(k)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: P.white,
+                  fontFamily: "'Sora'",
+                  fontSize: 13,
+                  padding: "4px 0",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = P.lime)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = P.white)
+                }
+              >
+                {l}
+              </button>
+            )
+          )}
         </div>
 
         {/* CONTACT */}
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, color: P.orange, marginBottom: 18 }}>
+          <div
+            style={{
+              fontFamily: "'Outfit'",
+              fontWeight: 800,
+              fontSize: 12,
+              letterSpacing: 3,
+              color: P.orange,
+              marginBottom: 18,
+            }}
+          >
             CONTACT
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", gap: 20 }}>
-  {/* EMAIL */}
-  <a
-    href="mailto:byahmadfaroqq@outlook.com"
-    style={iconOnlyStyle}
-    onMouseEnter={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#EA4335";
-      e.currentTarget.style.transform = "scale(1.12)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
-      e.currentTarget.style.transform = "none";
-    }}
-  >
-    <MailIcon />
-  </a>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 20,
+            }}
+          >
+            {/* EMAIL */}
+            <a
+              href="mailto:byahmadfaroqq@outlook.com"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#EA4335";
+                e.currentTarget.style.transform = "scale(1.12)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#aaa";
+                e.currentTarget.style.transform = "none";
+              }}
+            >
+              <MailIcon />
+            </a>
 
-  {/* WHATSAPP */}
-  <a
-    href="https://wa.me/923472768985"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={iconOnlyStyle}
-    onMouseEnter={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#25D366";
-      e.currentTarget.style.transform = "scale(1.12)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
-      e.currentTarget.style.transform = "none";
-    }}
-  >
-    <WhatsAppIcon />
-  </a>
+            {/* WHATSAPP */}
+            <a
+              href="https://wa.me/923472768985"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#25D366";
+                e.currentTarget.style.transform = "scale(1.12)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#aaa";
+                e.currentTarget.style.transform = "none";
+              }}
+            >
+              <WhatsAppIcon />
+            </a>
 
-  {/* LINKEDIN */}
-  <a
-    href="https://linkedin.com/in/byahmad"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={iconOnlyStyle}
-    onMouseEnter={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#0A66C2";
-      e.currentTarget.style.transform = "scale(1.12)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
-      e.currentTarget.style.transform = "none";
-    }}
-  >
-    <LinkedInIcon />
-  </a>
-</div>
+            {/* LINKEDIN */}
+            <a
+              href="https://linkedin.com/in/byahmad"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#0A66C2";
+                e.currentTarget.style.transform = "scale(1.12)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.querySelector("svg").style.stroke =
+                  "#aaa";
+                e.currentTarget.style.transform = "none";
+              }}
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+        </div>
+      </div>
 
-      <div style={{ borderTop: "2px solid #333", paddingTop: 20, display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-        <p style={{ fontFamily: "'Sora'", fontSize: 11, color: "#666" }}>© 2026 Ahmad Farooq. Built different.</p>
-        <div style={{ fontFamily: "'Outfit'", fontSize: 10, fontWeight: 700, letterSpacing: 2, color: P.orange }}>
+      {/* BOTTOM BAR — MOVED OUTSIDE GRID */}
+      <div
+        style={{
+          borderTop: "2px solid #333",
+          paddingTop: 20,
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Sora'",
+            fontSize: 11,
+            color: "#666",
+          }}
+        >
+          © 2026 Ahmad Farooq. Built different.
+        </p>
+
+        <div
+          style={{
+            fontFamily: "'Outfit'",
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: 2,
+            color: P.orange,
+          }}
+        >
           NEO-BRUTALISM EDITION
         </div>
       </div>
