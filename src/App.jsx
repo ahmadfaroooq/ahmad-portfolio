@@ -528,9 +528,28 @@ function HomePage({ nav }) {
           <Anim delay={0.2}>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <div style={{ position: "relative", transform: "rotate(2deg)" }}>
-                <div style={{ width: 260, height: 320, background: P.lightgray, border: `4px solid ${P.dark}`, boxShadow: `8px 8px 0 ${P.dark}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "'Outfit'", fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: P.gray }}>Your Photo Here</span>
-                </div>
+                <div
+  style={{
+    width: 260,
+    height: 320,
+    background: P.lightgray,
+    border: `4px solid ${P.dark}`,
+    boxShadow: `8px 8px 0 ${P.dark}`,
+    overflow: "hidden",
+  }}
+>
+  <img
+    src="/profile.png"
+    alt="Ahmad Farooq"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      display: "block",
+    }}
+  />
+</div>
+
                 <div style={{ position: "absolute", bottom: -12, right: -12, background: P.lime, border: `3px solid ${P.dark}`, padding: "6px 14px", fontFamily: "'Outfit'", fontWeight: 800, fontSize: 11, transform: "rotate(-3deg)", boxShadow: `3px 3px 0 ${P.dark}` }}>THAT'S ME →</div>
               </div>
             </div>
