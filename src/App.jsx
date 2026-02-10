@@ -480,7 +480,67 @@ const iconOnlyStyle = {
   cursor: "pointer",
   transition: "all 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
 };
+/* ─── CONTACT ICON SVGs (Stroke-based, clean) ─── */
 
+function MailIcon() {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#aaa"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ transition: "all 0.18s ease" }}
+    >
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M2 6l10 7 10-7" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#aaa"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ transition: "all 0.18s ease" }}
+    >
+      <path d="M21 11.5a8.5 8.5 0 11-16.3 4.2L3 21l5.5-1.4" />
+      <path d="M8.5 9.5c.2-.2.4-.3.6-.2l.8 1.1c.1.2.1.4 0 .6l-.4.5c.3.6 1 1.2 1.6 1.6l.5-.4c.2-.1.4-.1.6 0l1.1.8c.1.2 0 .4-.2.6-.4.4-1 .6-1.6.5-1.2-.3-2.5-1.3-3.3-2.1-.8-.8-1.8-2.1-2.1-3.3-.1-.6.1-1.2.5-1.6z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#aaa"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ transition: "all 0.18s ease" }}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="2" />
+      <line x1="7" y1="10" x2="7" y2="17" />
+      <circle cx="7" cy="7" r="1.2" />
+      <path d="M11 17v-4c0-1.5 2-1.6 2 0v4" />
+      <line x1="11" y1="10" x2="11" y2="17" />
+    </svg>
+  );
+}
 /* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */
