@@ -700,6 +700,28 @@ function BlogPage({ openPost }) {
 }
 /* ═══ FULL BLOG POST ═══ */
 function PostPage({ post, goBack }) {
+  if (!post) {
+    return (
+      <div style={{ padding: 80, textAlign: "center", fontFamily: "'Outfit'" }}>
+        <h2>Post not found</h2>
+        <button
+          onClick={goBack}
+          style={{
+            marginTop: 20,
+            padding: "12px 20px",
+            background: "#A6FF00",
+            border: "3px solid #1A1A1A",
+            fontWeight: 800,
+            cursor: "pointer",
+          }}
+        >
+          ← Back to Blog
+        </button>
+      </div>
+    );
+  }
+
+function PostPage({ post, goBack }) {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
 
@@ -951,10 +973,17 @@ const [activePost, setActivePost] = useState(null);
     />
   );
   case "post":
-  return (
+  return activePost ? (
     <PostPage
       post={activePost}
       goBack={() => setPage("blog")}
+    />
+  ) : (
+    <BlogPage
+      openPost={(post) => {
+        setActivePost(post);
+        setPage("post");
+      }}
     />
   );
       case "book": return <BookPage />;
