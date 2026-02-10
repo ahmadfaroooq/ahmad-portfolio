@@ -599,11 +599,11 @@ function Footer({ nav }) {
   href="mailto:byahmadfaroqq@outlook.com"
   aria-label="Email"
   style={iconOnlyStyle}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = "translate(-2px, -2px)";
-    e.currentTarget.style.boxShadow = `6px 6px 0 ${P.dark}`;
-    e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
-  }}
+ onMouseEnter={(e) => {
+  e.currentTarget.style.transform = "translate(-2px, -2px)";
+  e.currentTarget.style.boxShadow = "6px 6px 0 #EA4335"; // Gmail red
+  e.currentTarget.querySelector("img").style.transform = "scale(1.12)";
+}}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform = "none";
     e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
