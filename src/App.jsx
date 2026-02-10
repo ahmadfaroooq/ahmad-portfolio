@@ -474,18 +474,6 @@ const iconOnlyStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: "#111",
-  border: `2px solid ${P.dark}`,
-  boxShadow: `3px 3px 0 ${P.dark}`,
-  cursor: "pointer",
-  transition: "all 0.15s ease",
-};
-const iconOnlyStyle = {
-  width: 44,
-  height: 44,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
   background: "transparent",          // 🔥 no dark box
   border: "2px solid transparent",     // invisible by default
   boxShadow: "none",
@@ -528,8 +516,8 @@ function Footer({ nav }) {
               marginTop: 14,
             }}
           >
-            Growth strategist who builds systems, not excuses. Strategy,
-            content, and execution for founders who move fast.
+            Growth strategist who builds systems. Strategy,
+            content, and execution for founders and businesses who move fast.
           </p>
         </div>
 
