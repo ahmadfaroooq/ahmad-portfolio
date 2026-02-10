@@ -467,7 +467,7 @@ function Header({ page, nav }) {
     </header>
   );
 }
-/* ───────────────── CONTACT ICON BASE STYLE ───────────────── */
+/* ─── CONTACT ICON BASE STYLE ─── */
 const iconOnlyStyle = {
   width: 44,
   height: 44,
@@ -476,12 +476,11 @@ const iconOnlyStyle = {
   justifyContent: "center",
   background: "transparent",
   border: "2px solid transparent",
-  boxShadow: "none",
   cursor: "pointer",
-  transition: "all 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
+  transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
 };
 
-/* ───────────────── ICON SVGs (STROKE ONLY) ───────────────── */
+/* ─── MAIL (GMAIL-STYLE) ─── */
 function MailIcon() {
   return (
     <svg
@@ -490,17 +489,17 @@ function MailIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#aaa"
-      strokeWidth="2"
+      strokeWidth="2.2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ transition: "stroke 0.18s ease" }}
     >
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="M2 6l10 7 10-7" />
+      <path d="M3 6h18v12H3z" />
+      <path d="M3 6l9 7 9-7" />
     </svg>
   );
 }
 
+/* ─── WHATSAPP (CLEAN STROKE) ─── */
 function WhatsAppIcon() {
   return (
     <svg
@@ -509,17 +508,17 @@ function WhatsAppIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#aaa"
-      strokeWidth="2"
+      strokeWidth="2.2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ transition: "stroke 0.18s ease" }}
     >
-      <path d="M21 11.5a8.5 8.5 0 11-16.3 4.2L3 21l5.5-1.4" />
-      <path d="M8.5 9.5c.2-.2.4-.3.6-.2l.8 1.1c.1.2.1.4 0 .6l-.4.5c.3.6 1 1.2 1.6 1.6l.5-.4c.2-.1.4-.1.6 0l1.1.8c.1.2 0 .4-.2.6-.4.4-1 .6-1.6.5-1.2-.3-2.5-1.3-3.3-2.1-.8-.8-1.8-2.1-2.1-3.3-.1-.6.1-1.2.5-1.6z" />
+      <path d="M21 11.5a8.5 8.5 0 11-3.1-6.6" />
+      <path d="M7.5 9.5c.2-.3.5-.4.8-.2l1 1.3c.1.2.1.4 0 .6l-.5.6c.4.7 1.3 1.5 2 1.9l.6-.5c.2-.1.4-.1.6 0l1.3 1c.2.3.1.6-.2.8-.6.5-1.4.7-2.2.5-1.5-.4-3-1.6-4-2.6s-2.2-2.5-2.6-4c-.2-.8 0-1.6.5-2.2z" />
     </svg>
   );
 }
 
+/* ─── LINKEDIN (BOLD i + n) ─── */
 function LinkedInIcon() {
   return (
     <svg
@@ -528,20 +527,17 @@ function LinkedInIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="#aaa"
-      strokeWidth="2.4"
+      strokeWidth="2.6"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ transition: "stroke 0.18s ease" }}
     >
-      <rect x="2" y="2" width="20" height="20" rx="2" />
+      <rect x="2" y="2" width="20" height="20" rx="3" />
       <line x1="7" y1="10" x2="7" y2="17" />
-      <circle cx="7" cy="7" r="1.3" />
-      <path d="M11 17v-4c0-1.6 2.4-1.6 2.4 0v4" />
-      <line x1="11" y1="10" x2="11" y2="17" />
+      <circle cx="7" cy="7" r="1.4" />
+      <path d="M11 17v-4.5c0-1.8 2.5-1.8 2.5 0V17" />
     </svg>
   );
 }
-
 /* ───────────────── FOOTER ───────────────── */
 function Footer({ nav }) {
   return (
@@ -594,37 +590,59 @@ function Footer({ nav }) {
             CONTACT
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", gap: 18 }}>
-            {[
-              { href: "mailto:byahmadfaroqq@outlook.com", color: "#EA4335", Icon: MailIcon },
-              { href: "https://wa.me/923472768985", color: "#25D366", Icon: WhatsAppIcon },
-              { href: "https://linkedin.com/in/byahmad", color: "#0A66C2", Icon: LinkedInIcon },
-            ].map(({ href, color, Icon }, i) => (
-              <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={iconOnlyStyle}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.border = `2px solid ${color}`;
-                  e.currentTarget.style.boxShadow = `4px 4px 0 ${color}`;
-                  e.currentTarget.style.transform = "translate(-2px, -2px)";
-                  e.currentTarget.querySelector("svg").setAttribute("stroke", color);
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.border = "2px solid transparent";
-                  e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.transform = "none";
-                  e.currentTarget.querySelector("svg").setAttribute("stroke", "#aaa");
-                }}
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 20 }}>
+  {/* EMAIL */}
+  <a
+    href="mailto:byahmadfaroqq@outlook.com"
+    style={iconOnlyStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#EA4335";
+      e.currentTarget.style.transform = "scale(1.12)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
+      e.currentTarget.style.transform = "none";
+    }}
+  >
+    <MailIcon />
+  </a>
+
+  {/* WHATSAPP */}
+  <a
+    href="https://wa.me/923472768985"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={iconOnlyStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#25D366";
+      e.currentTarget.style.transform = "scale(1.12)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
+      e.currentTarget.style.transform = "none";
+    }}
+  >
+    <WhatsAppIcon />
+  </a>
+
+  {/* LINKEDIN */}
+  <a
+    href="https://linkedin.com/in/byahmad"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={iconOnlyStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#0A66C2";
+      e.currentTarget.style.transform = "scale(1.12)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.querySelector("svg").style.stroke = "#aaa";
+      e.currentTarget.style.transform = "none";
+    }}
+  >
+    <LinkedInIcon />
+  </a>
+</div>
 
       <div style={{ borderTop: "2px solid #333", paddingTop: 20, display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
         <p style={{ fontFamily: "'Sora'", fontSize: 11, color: "#666" }}>© 2026 Ahmad Farooq. Built different.</p>
