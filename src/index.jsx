@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './styles/Global.css'
-import './styles/animations.css'
-import './styles/brutalism.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
