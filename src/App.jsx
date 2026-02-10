@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import ghost from "./lib/ghost";
 
 /* ═══════════════════════════════════════════════════════════
@@ -1382,6 +1383,7 @@ export default function App() {
         <main style={{ minHeight: "60vh" }}>{renderPage()}</main>
         <Footer nav={nav} />
       </div>
+      <SpeedInsights />
     </>
   );
 }
