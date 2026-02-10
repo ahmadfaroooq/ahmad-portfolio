@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import ghost from "./lib/ghost";
+import { ghost } from "./lib/ghost";
 
 /* ═══════════════════════════════════════════════════════════
    AHMAD FAROOQ — NEO-BRUTALISM PORTFOLIO + GHOST BLOG
@@ -1319,13 +1319,13 @@ export default function App() {
       setActivePost(null);
     }
     setPage(p);
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
 
   const handlePostClick = useCallback((post) => {
     setActivePost(post);
     setPage("post");
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
 
   const renderPage = () => {
