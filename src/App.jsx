@@ -554,7 +554,144 @@ function Footer({ nav }) {
               fontWeight: 800,
               fontSize: 12,
               letterSpacing: 3,
-              textTransform: "up
+              textTransform: "uppercase",
+              marginBottom: 14,
+              color: P.orange,
+            }}
+          >
+            Quick Links
+          </div>
+
+          {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(
+            ({ l, k }) => (
+              <div key={k}>
+                <button
+                  onClick={() => nav(k)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: P.white,
+                    fontFamily: "'Sora'",
+                    fontSize: 13,
+                    padding: "4px 0",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = P.lime)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = P.white)
+                  }
+                >
+                  {l}
+                </button>
+              </div>
+            )
+          )}
+        </div>
+
+        {/* CONTACT ICONS */}
+        <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              fontFamily: "'Outfit'",
+              fontWeight: 800,
+              fontSize: 12,
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              marginBottom: 18,
+              color: P.orange,
+            }}
+          >
+            Contact
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 18,
+            }}
+          >
+            {/* EMAIL */}
+            <a
+              href="mailto:byahmadfaroqq@outlook.com"
+              aria-label="Email"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "none";
+                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1)";
+              }}
+            >
+              <MailIcon />
+            </a>
+
+            {/* WHATSAPP */}
+            <a
+              href="https://wa.me/923472768985"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "none";
+                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1)";
+              }}
+            >
+              <WhatsAppIcon />
+            </a>
+
+            {/* LINKEDIN */}
+            <a
+              href="https://linkedin.com/in/byahmad"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              style={iconOnlyStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "none";
+                e.currentTarget.style.boxShadow = `3px 3px 0 ${P.dark}`;
+                e.currentTarget.querySelector("svg").style.transform =
+                  "scale(1)";
+              }}
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div
+        style={{
+          borderTop: "2px solid #333",
+          paddingTop: 20,
+          display: "flex"
 
 /* ═══════════════════════════════════════════════════════════
    HOME PAGE
