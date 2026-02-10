@@ -511,93 +511,50 @@ function LinkedInIcon() {
    ═══════════════════════════════════════════════════════════ */
 function Footer({ nav }) {
   return (
-    <footer style={{ background: P.dark, color: P.white, padding: "48px 24px 28px", borderTop: `4px solid ${P.dark}` }}>
-      <div style={{ maxWidth: 1140, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 32, marginBottom: 32 }}>
+    <footer
+      style={{
+        background: P.dark,
+        color: P.white,
+        padding: "48px 24px 28px",
+        borderTop: `4px solid ${P.dark}`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1140,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 32,
+          marginBottom: 32,
+        }}
+      >
+        {/* BRAND */}
         <div>
           <Logo size={28} />
-          <p style={{ fontFamily: "'Sora'", fontSize: 13, color: "#999", lineHeight: 1.8, marginTop: 14 }}>Growth strategist who builds systems, not excuses. Strategy, content, and execution for founders who move fast.</p>
+          <p
+            style={{
+              fontFamily: "'Sora'",
+              fontSize: 13,
+              color: "#999",
+              lineHeight: 1.8,
+              marginTop: 14,
+            }}
+          >
+            Growth strategist who builds systems, not excuses. Strategy,
+            content, and execution for founders who move fast.
+          </p>
         </div>
+
+        {/* QUICK LINKS */}
         <div>
-          <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", marginBottom: 14, color: P.orange }}>Quick Links</div>
-          {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(({ l, k }) => (
-            <div key={k}>
-              <button
-                onClick={() => nav(k)}
-                style={{ background: "none", border: "none", color: P.white, fontFamily: "'Sora'", fontSize: 13, padding: "4px 0", cursor: "pointer" }}
-                onMouseEnter={(e) => (e.target.style.color = P.lime)}
-                onMouseLeave={(e) => (e.target.style.color = P.white)}
-              >
-                {l}
-              </button>
-            </div>
-          ))}
-        </div>
-        <div>
-  <div style={{ fontFamily: "'Outfit'", fontWeight: 800, fontSize: 12, letterSpacing: 3, textTransform: "uppercase", marginBottom: 14, color: P.orange }}>
-    Contact
-  </div>
-
-  <a
-  href="mailto:byahmadfaroqq@outlook.com"
-  style={contactLinkStyle}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.color = P.lime;
-    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.color = "#ccc";
-    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
-  }}
->
-  <MailIcon />
-  byahmadfaroqq@outlook.com
-</a>
-
- <a
-  href="https://wa.me/923472768985"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={contactLinkStyle}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.color = P.lime;
-    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.color = "#ccc";
-    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
-  }}
->
-  <WhatsAppIcon />
-  +92 347 2768985
-</a>
-<a
-  href="https://linkedin.com/in/byahmad"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={contactLinkStyle}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.color = P.lime;
-    e.currentTarget.querySelector("svg").style.transform = "scale(1.15)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.color = "#ccc";
-    e.currentTarget.querySelector("svg").style.transform = "scale(1)";
-  }}
->
-  <LinkedInIcon />
-  linkedin.com/in/byahmad
-</a>
-
-</div>
-
-      </div>
-      <div style={{ borderTop: "2px solid #333", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-        <p style={{ fontFamily: "'Sora'", fontSize: 11, color: "#666" }}>&copy; 2026 Ahmad Farooq. Built different.</p>
-        <div style={{ fontFamily: "'Outfit'", fontSize: 10, fontWeight: 700, letterSpacing: 2, color: P.orange, textTransform: "uppercase" }}>Neo-Brutalism Edition</div>
-      </div>
-    </footer>
-  );
-}
+          <div
+            style={{
+              fontFamily: "'Outfit'",
+              fontWeight: 800,
+              fontSize: 12,
+              letterSpacing: 3,
+              textTransform: "up
 
 /* ═══════════════════════════════════════════════════════════
    HOME PAGE
