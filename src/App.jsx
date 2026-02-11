@@ -600,20 +600,7 @@ function Footer({ nav }) {
           </p>
         </div>
 
-        {/* QUICK LINKS */}
-        <div>
-          <div
-            style={{
-              fontFamily: "'Outfit'",
-              fontWeight: 800,
-              fontSize: 12,
-              letterSpacing: 3,
-              color: P.orange,
-              marginBottom: 14,
-            }}
-          >
-            QUICK LINKS
-          {/* QUICK LINKS */}
+      {/* QUICK LINKS */}
 <div>
   <div
     style={{
@@ -629,7 +616,13 @@ function Footer({ nav }) {
     QUICK LINKS
   </div>
 
-  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+    }}
+  >
     {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(
       ({ l, k }) => (
         <button
