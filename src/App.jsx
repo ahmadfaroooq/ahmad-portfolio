@@ -483,18 +483,23 @@ const iconOnlyStyle = {
 /* ─── MAIL (GMAIL-STYLE) ─── */
 function MailIcon() {
   return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#aaa"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M3 6h18v12H3z" />
-      <path d="M3 6l9 7 9-7" />
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M3 6L12 13L21 6"
+        stroke="#EA4335"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="3"
+        y="6"
+        width="18"
+        height="12"
+        rx="2"
+        stroke="#EA4335"
+        strokeWidth="2.4"
+      />
     </svg>
   );
 }
@@ -502,18 +507,21 @@ function MailIcon() {
 /* ─── WHATSAPP (CLEAN STROKE) ─── */
 function WhatsAppIcon() {
   return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#aaa"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 11.5a8.5 8.5 0 11-3.1-6.6" />
-      <path d="M7.5 9.5c.2-.3.5-.4.8-.2l1 1.3c.1.2.1.4 0 .6l-.5.6c.4.7 1.3 1.5 2 1.9l.6-.5c.2-.1.4-.1.6 0l1.3 1c.2.3.1.6-.2.8-.6.5-1.4.7-2.2.5-1.5-.4-3-1.6-4-2.6s-2.2-2.5-2.6-4c-.2-.8 0-1.6.5-2.2z" />
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+        stroke="#25D366"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M9.5 8.5c.2-.3.6-.4.9-.2l1 1.3c.2.3.1.6-.1.8l-.6.6c.6 1 1.5 1.8 2.5 2.4l.6-.6c.2-.2.5-.3.8-.1l1.3 1c.2.3.1.7-.2.9-.8.7-1.9.9-3 .6-1.6-.5-3.2-1.8-4.3-2.9-1.1-1.1-2.4-2.7-2.9-4.3-.3-1.1-.1-2.2.6-3z"
+        stroke="#25D366"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -521,20 +529,37 @@ function WhatsAppIcon() {
 /* ─── LINKEDIN (BOLD i + n) ─── */
 function LinkedInIcon() {
   return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#aaa"
-      strokeWidth="2.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="2" y="2" width="20" height="20" rx="3" />
-      <line x1="7" y1="10" x2="7" y2="17" />
-      <circle cx="7" cy="7" r="1.4" />
-      <path d="M11 17v-4.5c0-1.8 2.5-1.8 2.5 0V17" />
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="3"
+        stroke="#0A66C2"
+        strokeWidth="2.6"
+      />
+      <line
+        x1="8"
+        y1="10"
+        x2="8"
+        y2="17"
+        stroke="#0A66C2"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="8"
+        cy="7"
+        r="1.5"
+        fill="#0A66C2"
+      />
+      <path
+        d="M12 17v-4.2c0-1.8 2.8-1.8 2.8 0V17"
+        stroke="#0A66C2"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
