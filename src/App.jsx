@@ -613,34 +613,48 @@ function Footer({ nav }) {
             }}
           >
             QUICK LINKS
-          </div>
+          {/* QUICK LINKS */}
+<div>
+  <div
+    style={{
+      fontFamily: "'Outfit'",
+      fontWeight: 800,
+      fontSize: 12,
+      letterSpacing: 3,
+      color: P.orange,
+      marginBottom: 14,
+      textTransform: "uppercase",
+    }}
+  >
+    QUICK LINKS
+  </div>
 
-          {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(
-            ({ l, k }) => (
-              <button
-                key={k}
-                onClick={() => nav(k)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: P.white,
-                  fontFamily: "'Sora'",
-                  fontSize: 13,
-                  padding: "4px 0",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = P.lime)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = P.white)
-                }
-              >
-                {l}
-              </button>
-            )
-          )}
-        </div>
+  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+    {[{ l: "Blog", k: "blog" }, { l: "Resources", k: "playbook" }].map(
+      ({ l, k }) => (
+        <button
+          key={k}
+          onClick={() => nav(k)}
+          style={{
+            background: "none",
+            border: "none",
+            color: P.white,
+            fontFamily: "'Sora'",
+            fontSize: 13,
+            textAlign: "left",
+            cursor: "pointer",
+            padding: 0,
+            transition: "color 0.2s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = P.lime)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = P.white)}
+        >
+          {l}
+        </button>
+      )
+    )}
+  </div>
+</div>
 
         {/* CONTACT */}
         <div style={{ textAlign: "center" }}>
